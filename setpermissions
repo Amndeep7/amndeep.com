@@ -9,7 +9,14 @@ find . -type f -exec chmod 640 {} \;
 if [ -f "$1" ]; then
 	cat "$1" | xargs chmod 644
 else
-	echo "Not an acceptable input file"
+	echo "Not an acceptable input file for files"
+fi
+
+# Sets exceptional folders to be visible to the outside in a read/execute-only capacity
+if [ -f "$2" ]; then
+	cat "$2" | xargs chmod 755
+else
+	echo "Not an acceptable input file for folders"
 fi
 
 # Sets this script to be executable
