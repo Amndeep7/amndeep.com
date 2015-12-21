@@ -1,0 +1,17 @@
+#!/bin/sh
+# This script sets appropriate permissions for files on webservers (i.e. none for anyone outside of me, except for a list of exceptions)
+
+# Sets all files to be invisible to the outside
+find . -type d -exec chmod 750 {} \;
+find . -type f -exec chmod 640 {} \;
+
+# Sets exceptional files to be visible to the outside in a read-only capacity
+if [ -f "$1" ]; then
+	cat "$1" | xargs chmod 644
+else
+	echo "Not an acceptable input file"
+fi
+
+# Sets this script to be executable
+chmod 750 "$0"
+	
