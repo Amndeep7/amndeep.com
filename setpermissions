@@ -1,6 +1,12 @@
 #!/bin/sh
 # This script sets appropriate permissions for files on webservers (i.e. none for anyone outside of me, except for a list of exceptions)
 
+# Check to make sure has all its arguments
+if [ "$#" -ne 3 ]; then
+	echo "Illegal number of arguments"
+	exit 1
+fi
+	
 # Sets all files to be invisible to the outside
 find . -mindepth 1 -type d -exec chmod 750 {} \;
 find . -type f -exec chmod 640 {} \;
@@ -20,5 +26,9 @@ else
 fi
 
 # Sets this script to be executable
-chmod 750 "$0"
+if [ -f "$3" ]; then
+	cat "$3" | xargs chmod 750
+else
+	echo "Not an acceptable input file for folders"
+fi
 	
