@@ -25,7 +25,7 @@ else
 	echo "Not an acceptable input file for folders"
 fi
 
-# Sets this script to be executable
+# Sets exceptional scripts to be executable purely internally
 if [ -f "$3" ]; then
 	cat "$3" | xargs chmod 750
 else
