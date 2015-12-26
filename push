@@ -1,0 +1,26 @@
+#!/bin/sh
+# This script pushes local changes and then pulls them down in the webserver whereupon it sets it up for production.
+
+# Push from local
+git push
+
+# Update git remote references and figure out hashes
+git remote update
+LOCAL=$(git rev-parse @)
+echo $LOCAL
+REMOTE=$(git rev-parse @{u})
+
+# Wait until push goes through
+while [ $LOCAL != $REMOTE ]; do
+	echo "Waiting for Github to update"
+	sleep 5
+	git remote update
+	REMOTE=$(git rev-parse @{u})
+done
+
+echo "Local and remote are the same"
+
+# Pull into webserver and run production scripts
+WEBSERVER="/var/www/html/"
+(cd "$WEBSERVER";sudo git pull;sudo ./setpermissions whitelist_files whitelist_folders whitelist_executables)
+
