@@ -1,4 +1,5 @@
 *.pyc
+*.swp
 nohup.out
 .sass-cache/
 static/css/
