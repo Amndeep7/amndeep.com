@@ -7,6 +7,11 @@
 	</head>
 	<body>
 		<div class='poem'>
+			<ul>
+				{% for line in poem %}
+					<li>{{ line }}</li>
+				{% endfor %}
+			</ul>
 		</div>
 	</body>
 </html>
