@@ -1,3 +1,57 @@
 body {
-	background-color:#ff69b4;
+	background-color: #ff69b4;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+}
+
+#backgroundtext {
+	z-index: -1;
+	position: fixed;
+	text-align: justify;
+	margin: 0% -200%;
+	transform-origin: 0 0;
+	transform: rotate(-30deg);
+	color: #ffa5d2;
+}
+
+.poem {
+	position: absolute;
+	top: 50%;
+	left: 48%;
+	transform: translate(-50%, -50%);
+	overflow: hidden;
+	height: 39px;
+	font-size: 40px;
+	color: #331524;
+}
+
+ul {
+	margin: 0;
+	text-align: center;
+	white-space: nowrap;
+	list-style: none;
+
+	animation-duration: 27s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-name: nextline;
+	
+	li {
+		margin-top: 30px;
+	}
+}
+
+@keyframes nextline {
+	@for $i from 0 to 5 {
+		$current-frame: percentage($i*5/27);
+		$next-frame: percentage(($i*5+4)/27);
+		$loc: (-11 - (98-11)/4*$i) * 1%;
+		#{$current-frame, $next-frame} {
+			transform: translateY($loc);
+		} 
+	}
+	100% {transform: translateY(-11%);}
+	// 0%, percentage(5 / 37) {transform: translateY(-11%);}
+	// 90%, 100% {transform: translateY(-98%);}
 }

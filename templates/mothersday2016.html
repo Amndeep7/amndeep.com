@@ -1,12 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Happy Mother's Day!</title>
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/mothersday2016.scss.css') }}">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="{{ url_for('static', filename='js/mothersday2016.js') }}"></script>
+		<script>
+			$(document).ready(() => {
+				// this fill stuff comes from here: stackoverflow.com/a/5559206/645647
+				fill_background();
+			});
+		</script>
 	</head>
 	<body>
-		<div class='poem'>
+		<div id="backgroundtext"></div>
+		<div class="poem">
 			<ul>
 				{% for line in poem %}
 					<li>{{ line }}</li>
