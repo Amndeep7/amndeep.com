@@ -1,5 +1,6 @@
 *.pyc
 *.swp
-nohup.out
 .sass-cache/
+__pycache__/
+amndeepcomenv/
 static/css/

@@ -1,0 +1,5 @@
+NOTES
+-----
+
+amndeepcom.conf is soft symlinked to /etc/init/amndeepcom.conf
+amndeepcom is soft symlinked to /etc/nginx/sites-available/amndeepcom

@@ -1,17 +1,16 @@
-from __future__ import division, absolute_import, print_function, unicode_literals
-from flask import Flask, render_template, request
 import os
+from flask import Flask, render_template, request
 
 from settings import APP_ROOT
 
-website = Flask(__name__)
-website.debug = True
+application = Flask(__name__)
+application.debug = True
 
-@website.route('/')
+@application.route('/')
 def index():
 	return render_template('index.html')	
 
-@website.route('/mothersday2016')
+@application.route('/mothersday2016')
 def mothersday2016():
 	poem = ['The fish has too many bones,', 'and the watermelon too many seeds.']
 	with open(os.path.join(APP_ROOT, 'mothersday2016poems/poem1.txt')) as f:
@@ -20,4 +19,4 @@ def mothersday2016():
 	return render_template('mothersday2016.html', balpreet=balpreet, poem=poem)
 
 if __name__ == '__main__':
-	website.run(host='0.0.0.0')
+	application.run(host='0.0.0.0')
