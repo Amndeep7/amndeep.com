@@ -1,5 +1,5 @@
 NOTES
 -----
 
-amndeepcom.conf is soft symlinked to /etc/init/amndeepcom.conf
+amndeepcom.service is hard copied to /etc/systemd/system/amndeepcom.service
 amndeepcom is soft symlinked to /etc/nginx/sites-available/amndeepcom
