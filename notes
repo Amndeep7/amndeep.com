@@ -1,5 +1,0 @@
-NOTES
------
-
-amndeepcom.service is hard copied to /etc/systemd/system/amndeepcom.service
-amndeepcom is soft symlinked to /etc/nginx/sites-available/amndeepcom
